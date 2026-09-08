@@ -1,33 +1,83 @@
-# Real-Time Emotion Detection HUD
+# Emotion Detection Web Application
 
-An optimized, real-time computer vision pipeline built with Python that detects human faces via webcam and performs deep-learning-based facial expression analysis to predict current emotional states. 
+A web-based emotion detection system that analyzes facial expressions in real-time using your webcam.
 
-This project isolates the core visual computing intelligence layer from an emotion-based system to provide a clean, modular, and highly reusable standalone execution script.
+## Features
 
----
+- **Real-time emotion detection** using DeepFace AI
+- **Web-based interface** - accessible from any browser
+- **Optimized performance** - analyzes every 5th frame for better speed
+- **Visual HUD** - displays emotion bars next to detected faces
+- **Responsive design** - works on desktop and mobile browsers
 
-## 🚀 Key Features
+## Supported Emotions
 
-* **Real-Time Face Tracking:** Integrates OpenCV's Haar Cascade architecture for rapid, low-latency face detection and dynamic bounding box generation.
-* **Deep Learning Inference:** Leverages pre-trained Convolutional Neural Networks (CNNs) via the DeepFace framework to classify facial matrices into 7 core human emotions.
-* **Performance Matrix Optimization:** Implements a custom frame-skipping algorithm (processing neural net inference every 3rd frame) to ensure a fluid, high-FPS video feed without taxing CPU thresholds on consumer-grade hardware.
-* **State Persistence HUD:** Prevents UI text flickering by caching the last successfully inferred emotion until the next computational cycle clears.
+- Happy
+- Sad
+- Angry
+- Surprise
+- Neutral
 
----
+## Installation
 
-## 🛠️ Tech Stack
+1. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-* **Programming Language:** Python 3.8+[cite: 1]
-* **Computer Vision Framework:** OpenCV (`cv2`)
-* **Deep Learning Interface:** DeepFace (TensorFlow backend)
-* **Object Detection Engine:** Haar Cascade Classifiers (`haarcascade_frontalface_default.xml`)
+2. Run the web application:
+```bash
+python app.py
+```
 
----
+3. Open your browser and navigate to:
+```
+http://localhost:5000
+```
 
-## 📦 Directory Structure
+## How It Works
 
-Organize your workspace files as follows before running or pushing to GitHub:
-```text
-├── emotion_hud.py        # Main execution script containing the optimized vision loop[cite: 1, 2]
-├── requirements.txt      # Text file managing python dependencies[cite: 1, 2]
-└── README.md             # Project documentation[cite: 1, 2]
+1. The application accesses your webcam through the browser
+2. Faces are detected using OpenCV's Haar Cascade classifier
+3. Every 5th frame, DeepFace AI analyzes the detected face for emotions
+4. Results are displayed both on the video feed (as an overlay) and in a separate panel
+5. The emotion bars update in real-time via AJAX requests
+
+## Project Structure
+
+```
+/workspace
+├── app.py              # Flask web application
+├── emotion.py          # Original Python script (reference)
+├── requirements.txt    # Python dependencies
+├── README.md          # This file
+└── templates/
+    └── index.html     # Web interface
+```
+
+## Usage Tips
+
+- Allow camera access when prompted by your browser
+- Ensure good lighting for best face detection results
+- Press 'q' in the original script or close the browser tab to stop
+- Click "Fullscreen" for an immersive experience
+
+## Technical Details
+
+- **Backend**: Flask (Python web framework)
+- **Computer Vision**: OpenCV
+- **AI Model**: DeepFace
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Video Streaming**: Multipart JPEG streaming
+
+## Browser Compatibility
+
+Works best on:
+- Google Chrome
+- Mozilla Firefox
+- Microsoft Edge
+- Safari
+
+## License
+
+Same as the original project license.
